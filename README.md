@@ -1,4 +1,4 @@
-# 🍽️ KulinerKu – Website Pemesanan Makanan Modern
+# 🍽️ RestoKu – Website Pemesanan Makanan Modern
 
 ![HTML5](https://github.com/HariisDermawan/RestoKu/blob/main/banner/a.png)
 
@@ -44,8 +44,4 @@ Filter otomatis dengan kategori:
 ### 📱 Footer Promosi Aplikasi  
 Menampilkan ajakan untuk mengunduh aplikasi dengan desain menarik:  
 Mockup HP besar sejajar dengan teks promosi, serta tombol menuju **Google Play** dan **App Store**.
-
----
-
-## 🧩 Struktur Folder
 

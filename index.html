@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RestoKu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md rounded-[20px] mx-4 my-4 px-8 py-5 flex justify-between items-center">
+    <div class="flex items-center px-4 py-2 rounded-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mr-2 text-yellow-500 text-yellow-400" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20m4-16h4v8h-4m-8-8H4v8h4" />
+      </svg>
+      <span class="text-yellow-500  text-3xl font-bold">RestoKu</span>
+    </div>
+
+    <div class="hidden md:flex space-x-10 text-lg text-gray-700 font-medium">
+      <a href="#" class="hover:text-yellow-300 transition">Home</a>
+      <a href="#" class="hover:text-yellow-300 transition">Menu</a>
+      <a href="#" class="hover:text-yellow-300 transition">Reservasi</a>
+      <a href="#" class="hover:text-yellow-300 transition">Kontak</a>
+    </div>
+
+    <div class="hidden md:block">
+      <a href="#" class="bg-yellow-400 font-medium px-6 py-3 text-lg rounded-xl hover:bg-yellow-500 transition">
+        Registrasi
+      </a>
+    </div>
+
+    <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 block" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 hidden" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </nav>
+  <!-- end -->
+<!-- mobile -->
+  <div id="mobile-menu"
+    class="hidden flex flex-col bg-white shadow-md mx-4 rounded-[20px] mt-2 py-5 space-y-4 text-center text-lg text-gray-700 font-medium md:hidden">
+    <a href="#" class="hover:text-yellow-300 transition">Home</a>
+    <a href="#" class="hover:text-yellow-300 transition">Menu</a>
+    <a href="#" class="hover:text-yellow-300 transition">Reservasi</a>
+    <a href="#" class="hover:text-yellow-300 transition">Kontak</a>
+
+    <div class="pt-3">
+      <a href="#" class="px-6 py-3 rounded-xl text-lg bg-yellow-400 hover:bg-yellow-500 transition">
+        Registrasi
+      </a>
+    </div>
+  </div>
+  <!-- end -->
+  <!-- Hero Section -->
+  <section class="bg-white rounded-[20px] mx-4 mt-6 shadow-md overflow-hidden relative">
+    <div class="absolute inset-0 overflow-hidden">
+      <div
+        class="absolute right-[-350px] top-[-300px] md:right-[-300px] md:top-[-350px] w-[1200px] h-[900px] bg-yellow-400 rounded-bl-[1000px] overflow-hidden transition-all duration-300">
+        <div class="absolute inset-0 bg-no-repeat bg-cover bg-center"
+          style="background-image: url('asset/img/sad.jpeg');">
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="container mx-auto flex flex-col md:flex-row items-center justify-between px-8 py-12 md:py-20 relative z-10">
+      <div class="md:w-1/2 text-center md:text-left animate-fadeInUp">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+          <span class="text-yellow-400">Rasakan Sensasi</span><br class="hidden md:block" />
+          <span class="text-white md:text-gray-900">Kuliner Terbaik <br> di Setiap Gigitan </span>
+        </h1>
+
+        <p class="text-white/90 md:text-gray-700 text-lg md:text-xl mb-10 leading-relaxed max-w-xl">
+          Dari hidangan lokal hingga cita rasa internasional — semua ada di sini.
+          Pesan dengan mudah, cepat, dan nikmati kelezatan hanya dengan satu sentuhan.
+          <span class="text-yellow-300 font-semibold">Karena setiap rasa punya cerita.</span>
+        </p>
+
+        <div class="flex justify-center md:justify-start space-x-4">
+          <a href="#menu"
+            class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-3 rounded-lg text-lg shadow-lg transition-transform transform hover:-translate-y-1 hover:shadow-xl">
+            Lihat Menu
+          </a>
+          <a href="#"
+            class="bg-white/90 hover:bg-white text-gray-900 font-bold px-8 py-3 rounded-lg text-lg shadow-lg transition-transform transform hover:-translate-y-1 hover:shadow-xl">
+            Mulai Sekarang
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end -->
+  <!-- Menu -->
+  <section class="min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <div class="col-span-1 lg:col-span-3 px-0 sm:px-4 lg:px-0">
+        <div class="flex flex-wrap gap-3 mb-8">
+          <button
+            class="category-btn flex-1 min-w-[100px] sm:min-w-[120px] bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition text-center"
+            data-category="all">All Menu</button>
+          <button
+            class="category-btn flex-1 min-w-[100px] sm:min-w-[120px] bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition text-center"
+            data-category="makanan">Makanan</button>
+          <button
+            class="category-btn flex-1 min-w-[100px] sm:min-w-[120px] bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition text-center"
+            data-category="minuman">Minuman</button>
+        </div>
+
+        <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="makanan">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-20%</span>
+            <img src="asset/img/ayam-goreng.jpg" alt="Nasi Goreng Spesial" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Ayam Goreng Spesial</h3>
+                <p class="text-sm text-gray-500 mb-3">Ayam Goreng khas Indonesia memiliki ciri khusus berupa rasa
+                  rempah-rempahnya yang kuat.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 35.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 28.000</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="makanan">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-15%</span>
+            <img src="asset/img/ayam-taliwang-makanan-khas-indonesia.jpg" alt="Mie Goreng Pedas"
+              class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Ayam Taliwang</h3>
+                <p class="text-sm text-gray-500 mb-3">Makanan ini dibuat dari daging ayam yang dibakar bersama bumbu
+                  bawang putih, bawang merah, cabai merah kering, kencur, terasi, tomat, garam, dan gula merah.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 30.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 25.500</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col"
+            data-category="makanan">
+            <img src="asset/img/kepiting-soka-makanan-khas-indonesia-.jpg" alt="Ayam Geprek"
+              class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Kepiting Soka</h3>
+                <p class="text-sm text-gray-500 mb-3">Kepiting Soka adalah menu khas hidangan provinsi Kalimantan Utara.
+
+                  Kelezatan masakan ini adalah karena semua bagian kepitingnya bisa dimakan, temasuk juga cangkangnya.
+                </p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <span class="font-semibold text-lg">Rp. 30.000</span>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="minuman">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-10%</span>
+            <img src="asset/img/birpletok.webp" alt="Es Teh Manis" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Bir Pletok</h3>
+                <p class="text-sm text-gray-500 mb-3">Bir Pletok yang merupakan minuman tradisional Betawi. Minuman
+                  berwarna merah ini terbuat dari campuran rempah-rempah seperti jahe, daun pandan, dan serai.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 10.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 9.000</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="minuman">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-15%</span>
+            <img src="asset/img/es-dawet-minuman-khas-Jawa-Tengah.webp" alt="Es Kopi Susu"
+              class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Es Dawet</h3>
+                <p class="text-sm text-gray-500 mb-3"> dawet sendiri berasal dari tepung beras ketan dan perasan daun
+                  suji sebagai pewarna hijau. Biasanya es dawet disajikan bersama gula merah cair sedikit garam dan juga
+                  santan.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 22.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 18.700</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col"
+            data-category="minuman">
+            <img src="asset/img/Minuman-khas-Daerah-Riau.webp" alt="Es Jeruk" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Es Laksamana Mengamuk</h3>
+                <p class="text-sm text-gray-500 mb-3">Minuman khas Daerah Riau ini sangat unik dari segi namanya.
+                  Rupanya penamaan minuman ini memang sesuai dengan kisah asal-muasalnya.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <span class="font-semibold text-lg">Rp. 18.000</span>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="makanan">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-20%</span>
+            <img src="asset/img/gudeg.png" alt="Nasi Goreng Spesial" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Gudeg</h3>
+                <p class="text-sm text-gray-500 mb-3">Gudeg adalah sayur nangka yang disajikan dengan sambal goreng
+                  krecek. Nasi gudeg jogja cenderung manis dan tidak berkuah. Ada juga gudeg khas Solo yang cenderung
+                  gurih dan agak berkuah.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 35.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 28.000</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="makanan">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-15%</span>
+            <img src="asset/img/ikaan.jpg" alt="Mie Goreng Pedas" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Seruit</h3>
+                <p class="text-sm text-gray-500 mb-3">Hidangan khas Lampung ini dibuat dari bahan dasar ikan bakar</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 30.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 25.500</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col"
+            data-category="makanan">
+            <img src="asset/img/aceh.webp" alt="Ayam Geprek" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Mie Aceh Goreng</h3>
+                <p class="text-sm text-gray-500 mb-3">Kepiting Soka adalah menu khas hidangan provinsi Kalimantan Utara.
+
+                  Kelezatan masakan ini adalah karena semua bagian kepitingnya bisa dimakan, temasuk juga cangkangnya.
+                </p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <span class="font-semibold text-lg">Rp. 30.000</span>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="minuman">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-10%</span>
+            <img src="asset/img/cendol.webp" alt="Es Teh Manis" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Es Cendol</h3>
+                <p class="text-sm text-gray-500 mb-3">Tambahan tepung hunkwe ini membuat tekstur es cendol lebih kenyal
+                  dari es dawet meskipun tampilannya terlihat sama. Minuman manis ini sangat cocok untuk Anda nikmati
+                  saat cuaca panas di siang hari.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 10.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 9.000</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div
+            class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition relative flex flex-col"
+            data-category="minuman">
+            <span
+              class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-15%</span>
+            <img src="asset/img/tembaring.webp" alt="Es Kopi Susu" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Tambring</h3>
+                <p class="text-sm text-gray-500 mb-3">Bahan dasar minuman khas Bali ini adalah daging buah kelapa muda
+                  dan kuah yang terbuat tambring, gula jawa, asam jawa, dan juga putih telur.</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <div>
+                  <span class="block font-semibold text-gray-400 line-through text-sm">Rp. 22.000</span>
+                  <span class="block font-semibold text-lg text-red-500">Rp. 18.700</span>
+                </div>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+          <div class="menu-card bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition flex flex-col"
+            data-category="minuman">
+            <img src="asset/img/Es-Pisang-Ijo.webp" alt="Es Jeruk" class="w-full h-48 object-cover">
+            <div class="p-4 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-semibold text-gray-800 text-lg">Es Pisang Ijo</h3>
+                <p class="text-sm text-gray-500 mb-3">Pisang ijo yang sudah jadi kemudian Anda potong-potong dan Anda
+                  sajikan dengan kuah santan, sirup merah, susu kental manis, dan es serut. Minuman segar khas Indonesia
+                  ini memiliki rasa manis dan lembut yang menggugah selera</p>
+              </div>
+
+              <div class="flex items-end justify-between mt-auto mb-3">
+                <span class="font-semibold text-lg">Rp. 18.000</span>
+                <div class="flex items-center border rounded-md overflow-hidden">
+                  <button
+                    class="quantity-minus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">-</button>
+                  <span class="quantity-value w-10 text-center border-l border-r border-gray-300">0</span>
+                  <button
+                    class="quantity-plus px-3 py-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold">+</button>
+                </div>
+              </div>
+
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg transition">Beli</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div
+        class="lg:col-span-2 bg-white border mt-16 border-gray-200 rounded-xl shadow p-6 w-full max-w-full lg:max-w-[90%] ml-auto">
+        <h2 class="bg-yellow-400 text-black pl-4 text-lg font-semibold py-2 rounded-lg mb-4 flex items-center gap-2">
+          <!-- Ikon Keranjang -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 2.25h1.5l1.8 10.8a2.25 2.25 0 002.22 1.95h9.96a2.25 2.25 0 002.22-1.95l1.8-10.8H2.25zm5.25 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm9 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+          </svg>
+          KERANJANG
+        </h2>
+
+
+        <div class="space-y-3 text-sm">
+          <div>
+            <label class="block font-medium text-gray-700">No Order</label>
+            <input type="text" class="w-full border rounded px-3 py-2 bg-gray-200" placeholder="Auto" disabled>
+          </div>
+          <div>
+            <label class="block font-medium text-gray-700">Customer</label>
+            <input type="text" class="w-full border rounded px-3 py-2" placeholder="Nama Customer">
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h3 class="font-semibold text-gray-700 mb-2 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" class="w-5 h-5 text-yellow-500">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 2.25h1.5l1.8 10.8a2.25 2.25 0 002.22 1.95h9.96a2.25 2.25 0 002.22-1.95l1.8-10.8H2.25zm5.25 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm9 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+            </svg>
+            LIST KERANJANG
+          </h3>
+
+          <table class="w-full text-sm border border-gray-300 rounded">
+            <thead class="bg-gray-200 text-gray-700">
+              <tr>
+                <th class="p-2">No</th>
+                <th class="p-2">Nama</th>
+                <th class="p-2">Menu</th>
+                <th class="p-2">Qty</th>
+                <th class="p-2">Harga</th>
+                <th class="p-2">#</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="mt-4 space-y-3 text-sm">
+          <div>
+            <label class="block font-medium text-gray-700">Status</label>
+            <select class="w-full border rounded px-3 py-2">
+              <option>- Status Pembayaran -</option>
+              <option>Cash</option>
+              <option>Qris</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium text-gray-700">Total Bayar</label>
+            <input type="number" class="total-bayar w-full border rounded px-3 py-2" value="0">
+          </div>
+          <div>
+            <label class="block font-medium text-gray-700">Diskon (%)</label>
+            <input type="number" class="diskon w-full border rounded px-3 py-2" value="0">
+          </div>
+          <div>
+            <label class="block font-medium text-gray-700">Grand Total</label>
+            <input type="text" class="grand-total w-full border rounded px-3 py-2 bg-gray-200" value="Rp. 0" disabled>
+          </div>
+        </div>
+
+        <button
+          class="mt-6 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-lg transition">
+          Simpan Transaksi
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- end -->
+  <!-- menu -->
+  <section class="flex flex-col md:flex-row items-center bg-gray-100 w-full p-6 md:p-12">
+    <div class="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center md:justify-start gap-4">
+      <img src="asset/img/menu.jpg" alt="Gambar 1" class="w-48 sm:w-56 md:w-72 h-auto rounded-lg">
+      <img src="asset/img/menu.jpg" alt="Gambar 2" class="w-48 sm:w-56 md:w-72 h-auto rounded-lg">
+    </div>
+    <div class="w-full md:w-1/2 md:pl-0 flex flex-col justify-center text-center md:text-left">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-yellow-500 tracking-tight leading-snug mb-4">
+        Menu Restoku
+      </h2>
+      <p class="text-gray-700 text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
+        Menu rekomendasi kami dipilih secara khusus untuk menghadirkan cita
+        rasa terbaik dari bahan-bahan segar,
+        berkualitas, dan pilihan premium. Setiap hidangan dirancang dengan
+        perpaduan rasa yang seimbang, menghadirkan
+        kenikmatan dari suapan pertama hingga terakhir. Cocok untuk semua
+        selera — mulai dari hidangan tradisional kaya
+        rempah, yang membawa nostalgia rasa rumah, hingga kreasi modern yang
+        inovatif, menggugah selera sekaligus
+        memanjakan indera.
+      </p>
+      <p class="text-gray-600 text-sm sm:text-base md:text-lg italic">
+        Nikmati pengalaman kuliner terbaik yang telah kami siapkan dengan
+        penuh perhatian, di mana setiap menu tidak
+        hanya mengenyangkan, tetapi juga menghadirkan keindahan presentasi dan
+        kelezatan yang tak terlupakan. Biarkan
+        setiap hidangan membawa Anda dalam perjalanan rasa yang memikat,
+        menciptakan momen spesial baik untuk santap
+        sendiri, bersama keluarga, atau berbagi dengan teman.
+      </p>
+    </div>
+  </section>
+  <!-- end -->
+  <!-- footer -->
+  <footer class="relative bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 py-16 overflow-hidden"
+    style="font-family: 'Poppins', sans-serif;">
+    <div
+      class="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-yellow-200 rounded-full opacity-30 blur-3xl pointer-events-none">
+    </div>
+    <div
+      class="absolute bottom-[-120px] left-[-100px] w-[350px] h-[350px] bg-yellow-300 rounded-full opacity-30 blur-3xl pointer-events-none">
+    </div>
+
+    <div
+      class="container mx-auto relative z-10 flex flex-col md:flex-row items-center md:items-center justify-between px-6 md:px-12">
+
+      <div class="md:w-5/12 flex justify-center md:justify-start items-center">
+        <img src="asset/img/nm.png" alt="Mockup App"
+          class="w-[300px] md:w-[400px] h-auto drop-shadow-2xl transform hover:scale-105 transition duration-500">
+      </div>
+
+      <div class="md:w-7/12 text-left flex flex-col justify-center items-start mt-8 md:mt-0 md:pl-8">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+          Nikmati Hidangan Lezat<br class="hidden md:block">Bersama <span
+            class="text-white drop-shadow-md">RestoKu</span>
+        </h2>
+
+        <p class="text-gray-800 text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
+          Pesan makanan favorit Anda langsung dari genggaman tangan.
+          Unduh aplikasinya sekarang dan nikmati rekomendasi menu terbaik,
+          promo spesial, serta pengalaman kuliner yang lebih mudah setiap hari!
+        </p>
+
+        <div class="flex items-center justify-start space-x-4">
+          <a href="#" class="transform hover:scale-110 transition duration-300 inline-block">
+            <img src="asset/img/play.png" alt="Google Play" class="w-40 h-auto drop-shadow-md">
+          </a>
+          <a href="#" class="transform hover:scale-110 transition duration-300 inline-block">
+            <img src="asset/img/app.png" alt="App Store" class="w-40 h-auto drop-shadow-md">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-yellow-200 mt-12 pt-6 text-center text-sm text-gray-700">
+      © 2025 <span class="font-semibold">RestoKu</span>. Semua Hak Dilindungi.
+    </div>
+  </footer>
+  <!-- end -->
+  <script src="asset/js/main.js"></script>
+</body>
+
+</html>
